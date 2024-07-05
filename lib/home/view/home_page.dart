@@ -28,16 +28,26 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: const DefaultAppBar().build(context),
       backgroundColor: AppColors.white,
-      body: const Column(
-        children: [
-          SizedBox(height: AppSpacing.xlg),
-          _Headline(),
-          SizedBox(height: AppSpacing.xlg),
-          _Card(),
-          SizedBox(height: AppSpacing.xlg),
-          DisclaimerEncrypted(),
-          SizedBox(height: AppSpacing.lg),
-        ],
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 360),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSpacing.lg,
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: AppSpacing.xlg),
+                _Headline(),
+                SizedBox(height: AppSpacing.xlg),
+                _Card(),
+                SizedBox(height: AppSpacing.xlg),
+                DisclaimerEncrypted(),
+                SizedBox(height: AppSpacing.lg),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -50,18 +60,17 @@ class _Headline extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Padding(
-      padding: const EdgeInsets.only(left: AppSpacing.lg, right: AppSpacing.lg),
-      child: RichText(
-        text: TextSpan(
-          text: l10n.wellnessDiplayTitleRegular,
-          children: <TextSpan>[
-            TextSpan(
-              text: l10n.wellnessDisplayTitleBold,
-              style: UITextStyle.subtitleSemibold,
-            ),
-          ],
-        ),
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        text: l10n.wellnessDiplayTitleRegular,
+        style: UITextStyle.subtitle,
+        children: <TextSpan>[
+          TextSpan(
+            text: l10n.wellnessDisplayTitleBold,
+            style: UITextStyle.subtitleSemibold,
+          ),
+        ],
       ),
     );
   }
@@ -74,25 +83,22 @@ class _Card extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Padding(
-      padding: const EdgeInsets.only(left: AppSpacing.lg, right: AppSpacing.lg),
-      child: AppCard(
-        child: Column(
-          children: [
-            const AppIcon(),
-            const SizedBox(height: AppSpacing.lg),
-            Text(
-              l10n.wellnessTestTitle,
-              style: UITextStyle.headingSmall,
-            ),
-            Text(
-              l10n.wellnessTestSubtitle,
-              style: UITextStyle.paragraph,
-            ),
-            const SizedBox(height: AppSpacing.lg),
-            const WellnessForm(),
-          ],
-        ),
+    return AppCard(
+      child: Column(
+        children: [
+          const AppIcon(),
+          const SizedBox(height: AppSpacing.lg),
+          Text(
+            l10n.wellnessTestTitle,
+            style: UITextStyle.headingSmall,
+          ),
+          Text(
+            l10n.wellnessTestSubtitle,
+            style: UITextStyle.paragraph,
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          const WellnessForm(),
+        ],
       ),
     );
   }

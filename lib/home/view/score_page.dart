@@ -14,12 +14,13 @@ class ScorePage extends StatelessWidget {
     super.key,
   });
 
-  final int annualIncome;
-  final int monthlyCosts;
+  final int? annualIncome;
+  final int? monthlyCosts;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      lazy: false,
       create: (_) => WellnessScoreCubit(
         wellnessRepository: context.read<WellnessRepository>(),
       )..calculateWellnessScore(

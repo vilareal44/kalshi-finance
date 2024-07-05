@@ -11,11 +11,15 @@ class DisclaimerEncrypted extends StatelessWidget {
 
     return Column(
       children: [
-        Text('icon'),
+        Assets.lock.svg(),
         const SizedBox(
           height: AppSpacing.lg,
         ),
-        Text(l10n.globalEncryptedDataDisclaimer),
+        Text(
+          l10n.globalEncryptedDataDisclaimer,
+          textAlign: TextAlign.center,
+          style: UITextStyle.description,
+        ),
       ],
     );
   }

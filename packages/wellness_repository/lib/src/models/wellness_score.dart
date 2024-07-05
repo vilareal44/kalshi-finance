@@ -1,5 +1,8 @@
 /// The wellness score of a user.
 enum WellnessScore {
+  /// The user is in a unknown financial state.
+  unknown,
+
   /// The user is in a healthy financial state.
   healthy,
 

@@ -9,9 +9,14 @@ class WellnessScoreCubit extends Cubit<WellnessScore> {
   final WellnessRepository _wellnessRepository;
 
   void calculateWellnessScore({
-    required int annualIncome,
-    required int monthlyCosts,
+    required int? annualIncome,
+    required int? monthlyCosts,
   }) {
+    if (annualIncome == null || monthlyCosts == null) {
+      emit(WellnessScore.unknown);
+      return;
+    }
+
     final score = _wellnessRepository.calculateScore(
       annualGrossIncome: annualIncome,
       monthlyCosts: monthlyCosts,

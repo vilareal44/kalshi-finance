@@ -13,7 +13,7 @@ class WellnessFormState extends Equatable {
   final FormzSubmissionStatus status;
   final String? errorMessage;
 
-  bool get isValid => annualIncome.isValid;
+  bool get isValid => annualIncome.isValid && monthlyCosts.isValid;
 
   @override
   List<Object?> get props => [annualIncome, monthlyCosts, status, errorMessage];

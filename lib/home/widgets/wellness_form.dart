@@ -14,9 +14,12 @@ class WellnessForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Column(
+    return const Column(
       children: [
         _AnnualIncomeInput(),
+        SizedBox(height: AppSpacing.lg),
+        _MontlyCostsInput(),
+        SizedBox(height: AppSpacing.lg),
         _ContinueButton(),
       ],
     );
@@ -45,11 +48,19 @@ class _AnnualIncomeInput extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.sm),
             TextField(
+              style: UITextStyle.headingSmall.copyWith(fontSize: 24),
               onChanged: (annualIncome) =>
                   context.read<WellnessFormCubit>().annualIncomeChanged(
                         int.tryParse(annualIncome),
                       ),
               decoration: InputDecoration(
+                prefixIcon: Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    start: AppSpacing.md,
+                    end: AppSpacing.md,
+                  ),
+                  child: Assets.dollarSign.svg(),
+                ),
                 hintText: '0',
                 border: const OutlineInputBorder(),
                 errorText: state.annualIncome.displayError ==
@@ -58,6 +69,68 @@ class _AnnualIncomeInput extends StatelessWidget {
                     : state.annualIncome.displayError ==
                             AnnualIncomeValidationError.zero
                         ? l10n.wellnessAnnualIncomeZeroValueError
+                        : null,
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColors.extraLightGray),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColors.primary),
+                ),
+                focusedErrorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColors.red),
+                ),
+                errorBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: AppColors.red),
+                ),
+              ),
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(11),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _MontlyCostsInput extends StatelessWidget {
+  const _MontlyCostsInput({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
+    return BlocBuilder<WellnessFormCubit, WellnessFormState>(
+      buildWhen: (previous, current) =>
+          previous.monthlyCosts != current.monthlyCosts,
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.wellnessMonthlyCostInputLabel,
+              style: UITextStyle.description,
+            ),
+            const SizedBox(height: AppSpacing.sm),
+            TextField(
+              onChanged: (monthlyCosts) =>
+                  context.read<WellnessFormCubit>().monthlyCostsChanged(
+                        int.tryParse(monthlyCosts),
+                      ),
+              decoration: InputDecoration(
+                hintText: '0',
+                border: const OutlineInputBorder(),
+                errorText: state.monthlyCosts.displayError ==
+                        MonthlyCostsValidationError.required
+                    ? l10n.wellnessMonthlyCostsRequiredInputError
+                    : state.monthlyCosts.displayError ==
+                            MonthlyCostsValidationError.zero
+                        ? l10n.wellnessMonthlyCostsZeroValueError
                         : null,
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: AppColors.extraLightGray),
@@ -95,11 +168,10 @@ class _ContinueButton extends StatelessWidget {
     return BlocBuilder<WellnessFormCubit, WellnessFormState>(
       builder: (context, state) {
         return AppButton.primary(
-          child: Text(l10n.globalContinue),
           onPressed: state.isValid
               ? () {
-                  final annualIncome = state.annualIncome;
-                  final monthlyCosts = state.monthlyCosts;
+                  final annualIncome = state.annualIncome.value;
+                  final monthlyCosts = state.monthlyCosts.value;
 
                   context.go(
                     '/wellness-score',
@@ -110,6 +182,7 @@ class _ContinueButton extends StatelessWidget {
                   );
                 }
               : null,
+          child: Text(l10n.globalContinue),
         );
       },
     );
