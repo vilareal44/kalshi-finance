@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kalshi_finance/counter/counter.dart';
+import 'package:kalshi_finance/home/counter.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../helpers/helpers.dart';

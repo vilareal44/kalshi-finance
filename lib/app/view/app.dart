@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kalshi_finance/counter/counter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kalshi_finance/home/home.dart';
 import 'package:kalshi_finance/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -7,16 +8,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        ),
-        useMaterial3: true,
-      ),
+    return const MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: HomePage(),
     );
   }
 }
