@@ -34,4 +34,7 @@ class AppColors {
 
   /// Error color for the app.
   static const Color red = Color.fromRGBO(211, 42, 54, 1);
+
+  ///
+  static const Color lightBlue = Color.fromRGBO(204, 213, 255, 1);
 }
