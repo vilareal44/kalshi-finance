@@ -46,10 +46,10 @@ class AppView extends StatelessWidget {
         GoRoute(
           path: '/wellness-score',
           builder: (BuildContext context, GoRouterState state) {
-            final extraValues = state.extra as Map<String, dynamic>;
+            final extraValues = state.extra as Map<String, dynamic>?;
             return ScorePage(
-              annualIncome: extraValues['annualIncome'] as int?,
-              monthlyCosts: extraValues['monthlyCosts'] as int?,
+              annualIncome: extraValues?['annualIncome'] as int?,
+              monthlyCosts: extraValues?['monthlyCosts'] as int?,
             );
           },
         ),

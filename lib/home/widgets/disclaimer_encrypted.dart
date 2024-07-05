@@ -18,7 +18,9 @@ class DisclaimerEncrypted extends StatelessWidget {
         Text(
           l10n.globalEncryptedDataDisclaimer,
           textAlign: TextAlign.center,
-          style: UITextStyle.description,
+          style: UITextStyle.description.copyWith(
+            color: AppColors.lightGray,
+          ),
         ),
       ],
     );

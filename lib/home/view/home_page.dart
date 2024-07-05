@@ -25,29 +25,18 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const DefaultAppBar().build(context),
+    return const AppBasePage(
       backgroundColor: AppColors.white,
-      body: Center(
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 360),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSpacing.lg,
-            ),
-            child: Column(
-              children: [
-                SizedBox(height: AppSpacing.xlg),
-                _Headline(),
-                SizedBox(height: AppSpacing.xlg),
-                _Card(),
-                SizedBox(height: AppSpacing.xlg),
-                DisclaimerEncrypted(),
-                SizedBox(height: AppSpacing.lg),
-              ],
-            ),
-          ),
-        ),
+      child: Column(
+        children: [
+          SizedBox(height: AppSpacing.xlg),
+          _Headline(),
+          SizedBox(height: AppSpacing.xlg),
+          _Card(),
+          SizedBox(height: AppSpacing.xlg),
+          DisclaimerEncrypted(),
+          SizedBox(height: AppSpacing.lg),
+        ],
       ),
     );
   }
