@@ -1,7 +1,4 @@
-/// {@template design_system}
-/// Kalshi design system
-/// {@endtemplate}
-class DesignSystem {
-  /// {@macro design_system}
-  const DesignSystem();
-}
+export 'colors/colors.dart';
+export 'layout/layout.dart';
+export 'typography/typography.dart';
+export 'widgets/widgets.dart';

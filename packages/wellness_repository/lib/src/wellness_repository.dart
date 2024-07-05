@@ -10,8 +10,8 @@ class WellnessRepository {
   /// Gets the financial score
   /// Returns  [WellnessScore]
   WellnessScore calculateScore({
-    required double annualGrossIncome,
-    required double monthlyCosts,
+    required int annualGrossIncome,
+    required int monthlyCosts,
   }) {
     final annualNetIncome = annualGrossIncome - (annualGrossIncome * 0.08);
     final annualCosts = monthlyCosts * 12;

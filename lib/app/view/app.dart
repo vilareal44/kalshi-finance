@@ -46,7 +46,7 @@ class AppView extends StatelessWidget {
         GoRoute(
           path: '/wellness-score',
           builder: (BuildContext context, GoRouterState state) {
-            return const HomePage();
+            return const ScorePage(annualIncome: 100000, monthlyCosts: 5000);
           },
         ),
       ],

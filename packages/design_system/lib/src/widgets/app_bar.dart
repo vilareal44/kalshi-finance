@@ -13,6 +13,7 @@ class DefaultAppBar extends StatelessWidget {
       backgroundColor: AppColors.white,
       title: const AppLogo(),
       centerTitle: true,
+      toolbarHeight: 80,
     );
   }
 }
