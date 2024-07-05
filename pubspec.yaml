@@ -35,11 +35,13 @@ flutter:
   fonts:
     - family: Rubik
       fonts:
-        - asset: packages/design_system/fonts/Rubik-Regular.ttf
+        - asset: fonts/Rubik-Regular.ttf
+        - asset: fonts/Rubik-Medium.ttf
+          weight: 500      
     - family: WorkSans
       fonts:
-        - asset: packages/design_system/fonts/WorkSans-Regular.ttf
-        - asset: packages/design_system/fonts/WorkSans-Medium.ttf
+        - asset: fonts/WorkSans-Regular.ttf
+        - asset: fonts/WorkSans-Medium.ttf
           weight: 500
-        - asset: packages/design_system/fonts/WorkSans-SemiBold.ttf
+        - asset: fonts/WorkSans-SemiBold.ttf
           weight: 600

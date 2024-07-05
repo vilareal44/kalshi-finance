@@ -40,7 +40,9 @@ class _AnnualIncomeInput extends StatelessWidget {
           label: l10n.wellnessAnnualIncomeInputLabel,
           onChanged: (annualIncome) =>
               context.read<WellnessFormCubit>().annualIncomeChanged(
-                    int.tryParse(annualIncome),
+                    int.tryParse(
+                      annualIncome.replaceAll(',', ''),
+                    ),
                   ),
           errorText: state.annualIncome.displayError ==
                   AnnualIncomeValidationError.required
@@ -72,7 +74,9 @@ class _MontlyCostsInput extends StatelessWidget {
           label: l10n.wellnessMonthlyCostInputLabel,
           onChanged: (monthlyCosts) =>
               context.read<WellnessFormCubit>().monthlyCostsChanged(
-                    int.tryParse(monthlyCosts),
+                    int.tryParse(
+                      monthlyCosts.replaceAll(',', ''),
+                    ),
                   ),
           errorText: state.monthlyCosts.displayError ==
                   MonthlyCostsValidationError.required

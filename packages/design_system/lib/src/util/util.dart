@@ -1,1 +1,1 @@
-export 'currency_formatter.dart';
+export 'thousands_separator_formatter.dart';

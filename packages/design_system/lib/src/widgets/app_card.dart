@@ -11,12 +11,18 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(Object context) {
-    return Card(
-      color: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSpacing.sm),
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadow.withOpacity(0.08),
+            blurRadius: 10,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
-      shadowColor: AppColors.shadow,
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.lg),
         child: child,

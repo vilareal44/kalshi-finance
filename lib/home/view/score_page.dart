@@ -92,8 +92,6 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-
     return BlocBuilder<WellnessScoreCubit, WellnessScore>(
       builder: (context, wellnessScore) {
         return AppCard(
@@ -155,16 +153,23 @@ class _WellnessResultDescription extends StatelessWidget {
         Text(
           title,
           style: UITextStyle.headingSmall,
+          textAlign: TextAlign.center,
         ),
         RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
             text: subtitle,
-            style: UITextStyle.paragraph,
+            style: UITextStyle.paragraph.copyWith(
+              fontWeight: FontWeight.w400,
+              color: AppColors.mediumGray,
+            ),
             children: <TextSpan>[
               TextSpan(
                 text: subtitleBold,
-                style: UITextStyle.paragraphSemibold.copyWith(height: 1.5),
+                style: UITextStyle.paragraphSemibold.copyWith(
+                  height: 1.5,
+                  color: AppColors.mediumGray,
+                ),
               ),
             ],
           ),
