@@ -1,7 +1,28 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "globalReturn": "Return", 
+    "globalOk": "Ok",
+    "globalContinue": "Continue",
+    "globalEncryptedDataDisclaimer": "Your financial information is encrypted and secure. We'll never share or sell any of your personal data.",
+    "wellnessDiplayTitleRegular": "Let's find out your ",
+    "wellnessDisplayTitleBold": "financial wellness score.",
+    "wellnessTestTitle": "Financial wellness test",
+    "wellnessTestSubtitle": "Enter your financial information bellow",
+    "wellnessAnnualIncomeInputLabel": "Annual income",
+    "wellnessMonthlyCostInputLabel": "Monthly Costs",
+    "wellnessAnnualIncomeRequiredInputError": "Annual income value is invalid.",
+    "wellnessAnnualIncomeZeroValueError": "Annual income must be greater than zero.",
+    "wellnessMonthlyCostsRequiredInputError": "Monthly Costs value is invalid.",
+    "wellnessMonthlyCostsZeroValueError": "Monthly Costs must be greater than zero.",
+    "wellnessResultDisplayTitleRegular": "Here's your",
+    "wellnessResultDisplayTitleBold": "financial wellness score:",
+    "wellnessScoreHealthlyTitle": "Congratulations!",
+    "wellnessScoreHealthlySubtitle": "Your financial wellness score is",
+    "wellnessScoreHealthlySubtitleBold": "Healthy.",
+    "wellnessScoreAverageTitle": "There is room for improvement.",
+    "wellnessScoreAverageSubtitle": "Your financial wellness score is",
+    "wellnessScoreAverageSubtitleBold": "Average.",
+    "wellnessScoreUnhealthyTitle": "Caution!",
+    "wellnessScoreUnhealthySubtitle": "Your financial wellness score is",
+    "wellnessScoreUnhealthySubtitleBold": "Unhealthy."    
 }
