@@ -61,7 +61,7 @@ class AppTextInput extends StatelessWidget {
           keyboardType: TextInputType.number,
           inputFormatters: [
             FilteringTextInputFormatter.digitsOnly,
-            LengthLimitingTextInputFormatter(11),
+            // CurrencyFormatter(),
           ],
         ),
       ],
